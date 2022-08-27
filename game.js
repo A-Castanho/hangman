@@ -1,7 +1,35 @@
 var words = [
-    "test",
-    "testing",
-    "tests"
+    "flower",
+    "ears",
+    "dream",
+    "hamburger",
+    "chimney",
+    "fireplace",
+    "rugby",
+    "article",
+    "economy",
+    "permanent",
+    "expertise",
+    "articulate",
+    "division",
+    "provision",
+    "middle",
+    "straight",
+    "epicalyx",
+    "execute",
+    "sermon",
+    "message",
+    "graduate",
+    "public",
+    "fixture",
+    "conclusion",
+    "perception",
+    "wardrobe",
+    "stadium",
+    "fascinate",
+    "pressure",
+    "friendly",
+    "response",
 ];
 
 var hangmanImgs = [
@@ -36,7 +64,7 @@ $(document).on("keypress", function (evt) {
         generateWord();
     }else{
         if(isLetter(evt.key)){
-            checkLetter(evt.key);
+            checkLetter(evt.key.toLowerCase());
         }
     }
 });
@@ -46,7 +74,6 @@ function generateWord(){
     var index = Math.floor(Math.random()*words.length);
     wordToGuess = words[index];
     currentChars = wordToGuess.split('');
-    console.log(currentChars);
 
     guessedChars = Object.assign([], currentChars);
     guessedChars.fill('_');
@@ -79,10 +106,6 @@ function checkLetter(letter){
 }
 
 function fillWord(letter){
-
-    console.log(currentChars);
-    console.log(guessedChars);
-
     for(i=0; i<guessedChars.length;i++){
         if(guessedChars[i]=="_"){
             if(currentChars[i]==letter){
@@ -91,7 +114,6 @@ function fillWord(letter){
             }
         }
     }
-
 
     var wordGuessed = guessedChars.join("");
     $("#word").text(wordGuessed);
