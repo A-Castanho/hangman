@@ -53,6 +53,8 @@ var hangmanFase = 0;
 var attempts = 0;
 var numberCharsGuessed = 0;
 
+//TODO ADD LEVELS THAT ADD THE OTHER STICKMEN IMAGES
+
 generateWord();
 
 $(document).on("keypress", function (evt) {
